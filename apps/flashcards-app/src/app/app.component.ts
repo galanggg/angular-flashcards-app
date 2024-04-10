@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NxWelcomeComponent } from './nx-welcome.component';
-import { MatInputModule } from '@angular/material/input';
 import { FlashcardsFormComponent } from './flashcards-form/flashcards-form.component';
 import { FlashcardsListComponent } from './flashcards-list/flashcards-list.component';
 import { FlashcardsLocalFacade } from '@flashcards-app/flashcards-local-data';
@@ -9,12 +8,13 @@ import { Observable, filter, tap } from 'rxjs';
 import { Flashcard } from 'libs/api-interfaces';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { MaterialModule } from '@flashcards-app/material';
 @Component({
   standalone: true,
   imports: [
     NxWelcomeComponent,
     RouterModule,
-    MatInputModule,
+    MaterialModule,
     FlashcardsFormComponent,
     FlashcardsListComponent,
     HttpClientModule,

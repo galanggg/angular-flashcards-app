@@ -7,24 +7,12 @@ import {
 } from '@angular/core';
 import { CommonModule, NgClass } from '@angular/common';
 import { Flashcard } from 'libs/api-interfaces';
-import { MatCardModule } from '@angular/material/card';
-import { MatListModule } from '@angular/material/list';
-import { MatIconModule } from '@angular/material/icon';
-import { MatExpansionModule } from '@angular/material/expansion';
-import { MatButtonModule } from '@angular/material/button';
+import { MaterialModule } from '@flashcards-app/material';
 
 @Component({
   selector: 'app-flashcards-list',
   standalone: true,
-  imports: [
-    CommonModule,
-    MatCardModule,
-    MatListModule,
-    MatIconModule,
-    MatExpansionModule,
-    MatButtonModule,
-    NgClass,
-  ],
+  imports: [CommonModule, MaterialModule, NgClass],
   templateUrl: './flashcards-list.component.html',
   styleUrl: './flashcards-list.component.css',
 })
