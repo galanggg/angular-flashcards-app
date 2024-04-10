@@ -1,1 +1,15 @@
-<app-nx-welcome></app-nx-welcome> <router-outlet></router-outlet>
+<div class="container-app">
+  <app-flashcards-form
+    [flashcard]="selectedFlashcard$ | async"
+    (saved)="saveFlashcard($event)"
+    (cancelled)="reset()"
+  ></app-flashcards-form>
+  <app-flashcards-list
+    [flashcards]="(flashcards$ | async)!"
+    (selected)="selectFlashcard($event)"
+    (deleted)="deleteFlashcard($event)"
+    (completed)="completeFlashcard($event)"
+  >
+    ></app-flashcards-list
+  >
+</div>

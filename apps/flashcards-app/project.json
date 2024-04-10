@@ -8,19 +8,26 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/flashcards-app",
         "index": "apps/flashcards-app/src/index.html",
         "main": "apps/flashcards-app/src/main.ts",
-        "polyfills": ["zone.js"],
+        "polyfills": [
+          "zone.js"
+        ],
         "tsConfig": "apps/flashcards-app/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
           "apps/flashcards-app/src/favicon.ico",
           "apps/flashcards-app/src/assets"
         ],
-        "styles": ["apps/flashcards-app/src/styles.scss"],
+        "styles": [
+          "@angular/material/prebuilt-themes/deeppurple-amber.css",
+          "apps/flashcards-app/src/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -73,7 +80,9 @@
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "apps/flashcards-app/jest.config.ts"
       }

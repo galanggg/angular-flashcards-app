@@ -2,21 +2,28 @@
   "name": "@flashcards-app/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "s:flashcards-app": "npx nx serve flashcards-app --open",
+    "s:flashcards-json": "json-server server/flashcards.json --routes=server/routes.json --port=3200",
+    "s:flashcards-feature": "concurrently \"npm run s:flashcards-json\" \"npm run s:flashcards-app\""
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~17.3.0",
+    "@angular/cdk": "^17.3.3",
     "@angular/common": "~17.3.0",
     "@angular/compiler": "~17.3.0",
     "@angular/core": "~17.3.0",
     "@angular/forms": "~17.3.0",
+    "@angular/material": "^17.3.3",
     "@angular/platform-browser": "~17.3.0",
     "@angular/platform-browser-dynamic": "~17.3.0",
     "@angular/router": "~17.3.0",
     "@nx/angular": "18.2.3",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.14.3"
+    "zone.js": "~0.14.3",
+    "concurrently": "^8.2.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~17.3.0",
@@ -54,6 +61,7 @@
     "prettier": "^2.6.2",
     "ts-jest": "^29.1.0",
     "ts-node": "10.9.1",
+    "json-server": "^0.17.4",
     "typescript": "~5.4.2"
   }
 }

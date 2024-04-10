@@ -1,0 +1,45 @@
+<div class="container-list">
+  <mat-accordion>
+    @for (flashcard of flashcards; track $index) {
+    <mat-expansion-panel>
+      <mat-expansion-panel-header
+        [ngClass]="{
+          correct: flashcard.flag === 'correct',
+          incorrect: flashcard.flag === 'incorrect'
+        }"
+      >
+        {{ flashcard.question }}
+      </mat-expansion-panel-header>
+      {{ flashcard.answer }}
+      <mat-action-row class="group-action">
+        <button
+          mat-button
+          color="primary"
+          (click)="completed.emit({ flashcard: flashcard, flag: 'correct' })"
+        >
+          <mat-icon>done</mat-icon>
+        </button>
+        <button
+          mat-button
+          color="warn"
+          (click)="completed.emit({ flashcard: flashcard, flag: 'incorrect' })"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+        <button mat-button color="primary" (click)="selected.emit(flashcard)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button
+          mat-button
+          color="primary"
+          (click)="deleted.emit(flashcard); $event.stopImmediatePropagation()"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-action-row>
+    </mat-expansion-panel>
+    } @empty {
+    <div>No Flashcards found</div>
+    }
+  </mat-accordion>
+</div>

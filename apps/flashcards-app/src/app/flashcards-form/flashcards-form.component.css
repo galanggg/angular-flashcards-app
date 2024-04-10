@@ -1,0 +1,15 @@
+.container-form-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+}
+
+.card-action-group {
+  gap: 12px;
+}

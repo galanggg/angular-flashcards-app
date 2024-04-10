@@ -1,0 +1,23 @@
+.container-list {
+  width: 400px;
+
+  .correct {
+    background-color: #51be51 !important;
+  }
+
+  .correct:hover {
+    background-color: #51be51 !important;
+  }
+
+  .incorrect {
+    background-color: #ff4d4d !important;
+  }
+
+  .incorrect:hover {
+    background-color: #ff4d4d !important;
+  }
+
+  .group-action {
+    justify-content: space-around;
+  }
+}

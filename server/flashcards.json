@@ -1,0 +1,84 @@
+{
+  "flashcards": [
+    {
+      "id": "flashcard1",
+      "title": "Flashcard 1",
+      "description": "Description for Flashcard 1",
+      "question": "Source Code",
+      "answer": "The human-readable set of instructions written in a programming language that a programmer writes. It needs to be compiled or interpreted into machine code for a computer to execute.",
+      "user_id": "user1"
+    },
+    {
+      "id": "flashcard2",
+      "title": "Flashcard 2",
+      "description": "Description for Flashcard 2",
+      "question": "Program",
+      "answer": "A set of instructions written in a programming language that performs a specific task when executed by a computer.",
+      "user_id": "user2"
+    },
+    {
+      "id": "flashcard3",
+      "title": "Flashcard 3",
+      "description": "Description for Flashcard 3",
+      "question": "Programming",
+      "answer": "The process of designing, writing, testing, debugging, and maintaining the source code of computer programs.",
+      "user_id": "user3"
+    },
+    {
+      "id": "flashcard4",
+      "title": "Flashcard 4",
+      "description": "Description for Flashcard 4",
+      "question": "Command",
+      "answer": "An instruction given by a user or a program to a computer to perform a specific task.",
+      "user_id": "user4"
+    },
+    {
+      "id": "flashcard5",
+      "title": "Flashcard 5",
+      "description": "Description for Flashcard 5",
+      "question": "Command Execution",
+      "answer": "The process of performing an instruction or a set of instructions by the computer to solve a given programming designated task.",
+      "user_id": "user5"
+    },
+    {
+      "id": "flashcard6",
+      "title": "Flashcard 6",
+      "description": "Description for Flashcard 6",
+      "question": "Operators",
+      "answer": "A symbol performing operations on operands.",
+      "user_id": "user6"
+    },
+    {
+      "id": "flashcard7",
+      "title": "Flashcard 7",
+      "description": "Description for Flashcard 7",
+      "question": "Data Type",
+      "answer": "Refers to the classification of data such as 'integers', 'strings', 'lists', 'tuples', and 'dictionaries'.",
+      "user_id": "user7"
+    },
+    {
+      "id": "flashcard8",
+      "title": "Flashcard 8",
+      "description": "Description for Flashcard 8",
+      "question": "Integers",
+      "answer": "A Python data type that represents whole numbers, both positive and negative, without decimals.",
+      "user_id": "user8"
+    },
+    {
+      "id": "flashcard9",
+      "title": "Flashcard 9",
+      "description": "Description for Flashcard 9",
+      "question": "Floating-points (floats)",
+      "answer": "A data type used to represent real numbers, including decimal points.",
+      "user_id": "user9"
+    },
+    {
+      "id": "flashcard10",
+      "title": "Flashcard 10",
+      "description": "Description for Flashcard 10",
+      "question": "Boolean value",
+      "answer": "An object representing a True or a False value in a logical expression.",
+      "user_id": "user10"
+    }
+  ]
+}
