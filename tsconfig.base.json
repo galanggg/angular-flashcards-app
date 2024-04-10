@@ -18,7 +18,8 @@
       "@flashcards-app/flashcards-data": ["libs/flashcards-data/src/index.ts"],
       "@flashcards-app/flashcards-local-data": [
         "libs/flashcards-local-data/src/index.ts"
-      ]
+      ],
+      "@flashcards-app/material": ["libs/material/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
