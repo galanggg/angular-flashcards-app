@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Flashcard } from '../../../../api-interfaces';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, catchError, of, take, tap } from 'rxjs';
 import { FlashcardsService } from '@flashcards-app/flashcards-data';
 const mockFlashcards: Flashcard[] = [
   {
@@ -108,9 +108,18 @@ export class FlashcardsLocalFacade {
   selectedFlashcard$ = this.selectedFlashcard.asObservable();
 
   getAllFlashcards() {
-    this.flashcardsService.all().subscribe((flashcards) => {
-      this.flashcards.next(flashcards);
-    });
+    this.flashcardsService
+      .all()
+      .pipe(
+        take(1),
+        tap((flashcards) => {
+          this.flashcards.next(flashcards);
+        }),
+        catchError((error) => {
+          return of(error);
+        })
+      )
+      .subscribe();
   }
 
   resetSelectedFlashcard() {
@@ -125,9 +134,18 @@ export class FlashcardsLocalFacade {
   }
 
   loadFlashcards() {
-    this.flashcardsService.all().subscribe((flashcards) => {
-      this.flashcards.next(flashcards);
-    });
+    this.flashcardsService
+      .all()
+      .pipe(
+        take(1),
+        tap((flashcards: Flashcard | any) => {
+          this.flashcards.next(flashcards);
+        }),
+        catchError((error) => {
+          return of(error);
+        })
+      )
+      .subscribe();
   }
 
   loadFlashcard(flashcardId: string) {
@@ -146,27 +164,55 @@ export class FlashcardsLocalFacade {
   }
 
   createFlashcard(flashcard: Flashcard) {
-    this.flashcardsService.create(flashcard).subscribe((flashcard: any) => {
-      this.flashcards.next([...this.flashcards.value, flashcard]);
-    });
+    this.flashcardsService
+      .create(flashcard)
+      .pipe(
+        take(1),
+        tap((flashcard: Flashcard | any) => {
+          this.flashcards.next([...this.flashcards.value, flashcard]);
+        }),
+        catchError((error) => {
+          return of(error);
+        })
+      )
+      .subscribe();
   }
 
   updateFlashcard(flashcard: Flashcard) {
-    this.flashcardsService.update(flashcard).subscribe(() => {
-      this.flashcards.next(
-        this.flashcards.value.map((c) => {
-          return c.id == flashcard.id ? Object.assign({}, flashcard) : c;
+    this.flashcardsService
+      .update(flashcard)
+      .pipe(
+        take(1),
+        tap(() => {
+          this.flashcards.next(
+            this.flashcards.value.map((c) => {
+              return c.id == flashcard.id ? Object.assign({}, flashcard) : c;
+            })
+          );
+        }),
+        catchError((error) => {
+          return of(error);
         })
-      );
-    });
+      )
+      .subscribe();
   }
 
   deleteFlashcard(flashcard: Flashcard) {
-    this.flashcardsService.delete(flashcard).subscribe(() => {
-      this.flashcards.next(
-        this.flashcards.value.filter((c) => c.id !== flashcard.id)
-      );
-    });
+    this.flashcardsService
+      .delete(flashcard)
+      .pipe(
+        take(1),
+        tap(() => {
+          const flashcards = this.flashcards.value.filter(
+            (c) => c.id !== flashcard.id
+          );
+          this.flashcards.next(flashcards);
+        }),
+        catchError((error) => {
+          return of(error);
+        })
+      )
+      .subscribe();
   }
 
   completeFlashcard(flashcardFlagData: any) {
