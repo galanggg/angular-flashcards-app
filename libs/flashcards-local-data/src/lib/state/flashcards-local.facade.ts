@@ -139,16 +139,13 @@ export class FlashcardsLocalFacade {
 
   saveFlashcard(flashcard: Flashcard) {
     if (flashcard.id) {
-      console.log('updating flashcard', flashcard);
       this.updateFlashcard(flashcard);
     } else {
-      console.log('creating flashcard', flashcard);
       this.createFlashcard(flashcard);
     }
   }
 
   createFlashcard(flashcard: Flashcard) {
-    console.log(flashcard);
     this.flashcardsService.create(flashcard).subscribe((flashcard: any) => {
       this.flashcards.next([...this.flashcards.value, flashcard]);
     });

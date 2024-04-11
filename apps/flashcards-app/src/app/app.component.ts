@@ -40,17 +40,14 @@ export class AppComponent implements OnInit {
     this.flashcardsFacade.getAllFlashcards();
   }
   selectFlashcard(flashcard: Flashcard) {
-    console.log('selecting flashcard', flashcard);
     this.flashcardsFacade.selectFlashcard(flashcard.id as string);
   }
 
   deleteFlashcard(flashcard: Flashcard) {
-    console.log('deleting flashcard', flashcard);
     this.flashcardsFacade.deleteFlashcard(flashcard);
   }
 
   saveFlashcard(flashcard: Flashcard) {
-    console.log(flashcard);
     this.flashcardsFacade.saveFlashcard(flashcard);
   }
 
