@@ -114,12 +114,10 @@ export class FlashcardsLocalFacade {
   }
 
   resetSelectedFlashcard() {
-    // this.dispatch(FlashcardsActions.resetSelectedFlashcard());
     this.selectedFlashcard.next(Object.assign({}, mockFlashcard));
   }
 
   selectFlashcard(selectedId: string) {
-    // this.dispatch(FlashcardsActions.selectFlashcard({ selectedId }));
     const flashcard =
       this.flashcards.value.find((flashcard) => flashcard.id == selectedId) ||
       Object.assign({}, mockFlashcard);
@@ -127,15 +125,12 @@ export class FlashcardsLocalFacade {
   }
 
   loadFlashcards() {
-    // this.dispatch(FlashcardsActions.loadFlashcards());
-    // this.flashcards.next(mockFlashcards);
     this.flashcardsService.all().subscribe((flashcards) => {
       this.flashcards.next(flashcards);
     });
   }
 
   loadFlashcard(flashcardId: string) {
-    // this.dispatch(FlashcardsActions.loadFlashcard({ flashcardId }));
     const flashcard =
       this.flashcards.value.find((flashcard) => flashcard.id == flashcardId) ||
       Object.assign({}, mockFlashcard);
@@ -154,21 +149,12 @@ export class FlashcardsLocalFacade {
 
   createFlashcard(flashcard: Flashcard) {
     console.log(flashcard);
-    // this.dispatch(FlashcardsActions.createFlashcard({ flashcard }));
     this.flashcardsService.create(flashcard).subscribe((flashcard: any) => {
       this.flashcards.next([...this.flashcards.value, flashcard]);
     });
-    // this.flashcards.next([...this.flashcards.value, flashcard]);
   }
 
   updateFlashcard(flashcard: Flashcard) {
-    // this.dispatch(FlashcardsActions.updateFlashcard({ flashcard }));
-    // const flashcards = this.flashcards.value.map((c) => {
-    //   return c.id == flashcard.id ? Object.assign({}, flashcard) : c;
-    // });
-    // console.log(flashcards);
-    // this.flashcards.next(flashcards);
-
     this.flashcardsService.update(flashcard).subscribe(() => {
       this.flashcards.next(
         this.flashcards.value.map((c) => {
@@ -179,12 +165,6 @@ export class FlashcardsLocalFacade {
   }
 
   deleteFlashcard(flashcard: Flashcard) {
-    // this.dispatch(FlashcardsActions.deleteFlashcard({ flashcard }));
-    // const flashcards = this.flashcards.value.filter(
-    //   (c) => c.id !== flashcard.id
-    // );
-    // this.flashcards.next(flashcards);
-
     this.flashcardsService.delete(flashcard).subscribe(() => {
       this.flashcards.next(
         this.flashcards.value.filter((c) => c.id !== flashcard.id)
